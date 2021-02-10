@@ -1,0 +1,19 @@
+<h2>Heres all my tools</h2>
+<form method="GET" action="/tools">
+    <label for="nameFilter">Filter by Name</label>
+    <input id="nameFilter" type="text" name="nameFilter">
+    <input type="submit">
+</form>
+<ul>
+    <% for (let idx = 0; idx < tools.length; idx++) { %> 
+        <% let tool = tools[idx] %>
+        <p><%= tool.name %></p>
+        <p><%= tool.type %></p>
+        <form method="POST" action="/tools/<%= idx %>?_method=DELETE">
+            <input type="submit" value='Delete'>
+        </form>
+        <a href="/tools/edit/<%= idx %>">Update</a>
+    <% } %>
+
+    <%= tools[0].name %>
+</ul>
